@@ -78,6 +78,7 @@ class NewPlaceViewController: UITableViewController {
             image = #imageLiteral(resourceName: "imagePlaceholder")
         }
         
+        
         newPlace = Place(name: placeName.text!,
                          location: placeLocation.text,
                          type: placeType.text,
