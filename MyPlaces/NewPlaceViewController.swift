@@ -11,6 +11,7 @@ import UIKit
 class NewPlaceViewController: UITableViewController {
 
     var newPlace: Place?
+    var imageIsChange = false
     
     @IBOutlet var placeImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -67,12 +68,24 @@ class NewPlaceViewController: UITableViewController {
         }
     }
 
+    //Add New Place
     func saveNewPlace() {
+        
+        var image: UIImage?
+        if imageIsChange{
+            image = placeImage.image
+        } else {
+            image = #imageLiteral(resourceName: "imagePlaceholder")
+        }
+        
         newPlace = Place(name: placeName.text!,
                          location: placeLocation.text,
                          type: placeType.text,
-                         image: placeImage.image,
+                         image: image,
                          restarentImage: nil )
+    }
+    @IBAction func cancelAction(_ sender: Any) {
+        dismiss(animated: true)
     }
     
 }
@@ -95,6 +108,7 @@ extension NewPlaceViewController: UITextFieldDelegate {
             saveButton.isEnabled = false
         }
     }
+    
 }
 
 //MARK: Work with image
@@ -117,6 +131,8 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
         placeImage.image = info[.editedImage] as? UIImage
         placeImage.contentMode = .scaleAspectFill
         placeImage.clipsToBounds = true
+        imageIsChange = true
+        
         dismiss(animated: true)
     }
 }

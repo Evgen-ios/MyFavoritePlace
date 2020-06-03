@@ -236,10 +236,14 @@
                     <navigationItem key="navigationItem" title="New Place" id="20R-bY-uKJ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QWd-8A-Con">
                             <connections>
-                                <segue destination="ijf-wN-1rB" kind="unwind" unwindAction="cancelAction:" id="eGh-By-tku"/>
+                                <action selector="cancelAction:" destination="xWI-zA-cEc" id="T5B-C4-T54"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TVh-pN-ADt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TVh-pN-ADt">
+                            <connections>
+                                <segue destination="ijf-wN-1rB" kind="unwind" unwindAction="unwindSegue:" id="D6x-tL-KnI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="placeImage" destination="wJ6-fS-tp1" id="JYY-Aj-wBD"/>
