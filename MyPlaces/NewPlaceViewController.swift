@@ -9,6 +9,8 @@
 import UIKit
 
 class NewPlaceViewController: UITableViewController {
+    
+    var curretPlace: Place?
 
     var imageIsChanged = false
     
@@ -25,6 +27,7 @@ class NewPlaceViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        setubEditScreen()
     }
     
     // MARK: Table view delegate
@@ -65,7 +68,7 @@ class NewPlaceViewController: UITableViewController {
         }
     }
     
-    func saveNewPlace() {
+    func savePlace() {
         
         var image: UIImage?
         
@@ -82,7 +85,41 @@ class NewPlaceViewController: UITableViewController {
                              type: placeType.text,
                              imageData: imageData)
         
-        StorageManager.saveObject(newPlace)
+        if curretPlace != nil{
+            try! realm.write {
+                curretPlace?.name = newPlace.name
+                curretPlace?.location = newPlace.location
+                curretPlace?.type = newPlace.type
+                curretPlace?.imageData = newPlace.imageData
+                }
+            } else {
+                 StorageManager.saveObject(newPlace)
+            }
+    }
+    
+    private func setubEditScreen(){
+        if curretPlace != nil {
+            
+            setupNavigationBar()
+            imageIsChanged = true
+            
+            guard let data = curretPlace?.imageData, let image = UIImage(data: data) else {return}
+            placeImage.image = image
+            placeImage.contentMode = .scaleAspectFill
+            placeName.text = curretPlace?.name
+            placeLocation.text = curretPlace?.location
+            placeType.text = curretPlace?.type
+            
+        }
+    }
+    
+    private func setupNavigationBar(){
+        if let topItem = navigationController?.navigationBar.topItem{
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = curretPlace?.name
+        saveButton.isEnabled = true
     }
 
     @IBAction func cancelAction(_ sender: Any) {

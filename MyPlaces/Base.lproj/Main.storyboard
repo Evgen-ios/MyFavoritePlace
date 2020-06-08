@@ -10,13 +10,13 @@
         <!--My Places-->
         <scene sceneID="1uB-hN-hyT">
             <objects>
-                <tableViewController id="BHk-PS-XbR" customClass="MainViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="BHk-PS-XbR" customClass="MainViewController" customModule="MyFavoritePlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gvi-IP-Iao">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="4wX-BY-y1a" customClass="CustomTableViewCell" customModule="MyPlaces" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="4wX-BY-y1a" customClass="CustomTableViewCell" customModule="MyFavoritePlaces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4wX-BY-y1a" id="OWZ-NE-zHy">
@@ -68,6 +68,7 @@
                                     <outlet property="locationLabel" destination="4Bu-7L-Etc" id="nkm-hQ-JuW"/>
                                     <outlet property="nameLabel" destination="S8b-2a-ghw" id="gUe-xI-cdr"/>
                                     <outlet property="typeLabel" destination="ea0-fR-FLL" id="YRn-lo-2LD"/>
+                                    <segue destination="xWI-zA-cEc" kind="show" identifier="showDetail" id="Mop-ar-lJx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,7 +77,7 @@
                             <outlet property="delegate" destination="BHk-PS-XbR" id="s5X-X1-aYG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Places" id="UTG-XJ-IHj">
+                    <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="UTG-XJ-IHj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g1R-Ol-t2L">
                             <connections>
                                 <segue destination="PmZ-hg-zRt" kind="presentation" modalTransitionStyle="crossDissolve" id="9vz-2s-ApQ"/>
@@ -91,9 +92,9 @@
         <!--New Place-->
         <scene sceneID="aPu-I8-tVm">
             <objects>
-                <tableViewController id="xWI-zA-cEc" customClass="NewPlaceViewController" customModule="MyPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="xWI-zA-cEc" customClass="NewPlaceViewController" customModule="MyFavoritePlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sei-5C-xfL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
@@ -233,7 +234,7 @@
                             <outlet property="delegate" destination="xWI-zA-cEc" id="3cE-un-XqA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Place" id="20R-bY-uKJ">
+                    <navigationItem key="navigationItem" title="New Place" largeTitleDisplayMode="always" id="20R-bY-uKJ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QWd-8A-Con">
                             <connections>
                                 <action selector="cancelAction:" destination="xWI-zA-cEc" id="T5B-C4-T54"/>
@@ -256,14 +257,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLv-3y-jaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ijf-wN-1rB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1887.2" y="8.5457271364317844"/>
+            <point key="canvasLocation" x="1164" y="9"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3KM-Cz-T7c">
             <objects>
                 <navigationController id="jB0-m8-nVp" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="McE-tP-Bgi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="McE-tP-Bgi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="24"/>
@@ -293,9 +294,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0A-HS-P3H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="8.5457271364317844"/>
+            <point key="canvasLocation" x="1165" y="-659"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Mop-ar-lJx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Photo" width="195" height="196"/>
     </resources>
