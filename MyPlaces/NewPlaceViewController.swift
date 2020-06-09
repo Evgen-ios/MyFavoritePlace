@@ -10,8 +10,7 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
     
-    var curretPlace: Place?
-
+    var currentPlace: Place?
     var imageIsChanged = false
     
     @IBOutlet var saveButton: UIBarButtonItem!
@@ -27,7 +26,7 @@ class NewPlaceViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        setubEditScreen()
+        setupEditScreen()
     }
     
     // MARK: Table view delegate
@@ -85,40 +84,40 @@ class NewPlaceViewController: UITableViewController {
                              type: placeType.text,
                              imageData: imageData)
         
-        if curretPlace != nil{
+        if currentPlace != nil {
             try! realm.write {
-                curretPlace?.name = newPlace.name
-                curretPlace?.location = newPlace.location
-                curretPlace?.type = newPlace.type
-                curretPlace?.imageData = newPlace.imageData
-                }
-            } else {
-                 StorageManager.saveObject(newPlace)
+                currentPlace?.name = newPlace.name
+                currentPlace?.location = newPlace.location
+                currentPlace?.type = newPlace.type
+                currentPlace?.imageData = newPlace.imageData
             }
+        } else {
+            StorageManager.saveObject(newPlace)
+        }
     }
     
-    private func setubEditScreen(){
-        if curretPlace != nil {
+    private func setupEditScreen() {
+        if currentPlace != nil {
             
             setupNavigationBar()
             imageIsChanged = true
             
-            guard let data = curretPlace?.imageData, let image = UIImage(data: data) else {return}
+            guard let data = currentPlace?.imageData, let image = UIImage(data: data) else { return }
+            
             placeImage.image = image
             placeImage.contentMode = .scaleAspectFill
-            placeName.text = curretPlace?.name
-            placeLocation.text = curretPlace?.location
-            placeType.text = curretPlace?.type
-            
+            placeName.text = currentPlace?.name
+            placeLocation.text = currentPlace?.location
+            placeType.text = currentPlace?.type
         }
     }
     
-    private func setupNavigationBar(){
-        if let topItem = navigationController?.navigationBar.topItem{
+    private func setupNavigationBar() {
+        if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
         navigationItem.leftBarButtonItem = nil
-        title = curretPlace?.name
+        title = currentPlace?.name
         saveButton.isEnabled = true
     }
 
