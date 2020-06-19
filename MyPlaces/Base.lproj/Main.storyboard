@@ -152,7 +152,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BU0-Cb-vPc" customClass="RatingControl" customModule="MyFavoritePlaces" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BU0-Cb-vPc" customClass="RatingControl" customModule="MyFavoritePlaces" customModuleProvider="target">
                                                     <rect key="frame" x="81" y="48" width="252" height="44"/>
                                                 </stackView>
                                             </subviews>
@@ -187,6 +187,7 @@
                         <outlet property="placeLocation" destination="4ck-sG-1zk" id="bhx-P7-BUK"/>
                         <outlet property="placeName" destination="IWb-HE-Q0N" id="Bep-VM-xUW"/>
                         <outlet property="placeType" destination="03B-gn-Ygo" id="mKP-gc-Dvp"/>
+                        <outlet property="ratingControl" destination="BU0-Cb-vPc" id="ylu-AQ-D2a"/>
                         <outlet property="saveButton" destination="TVh-pN-ADt" id="UdI-Wf-pOX"/>
                     </connections>
                 </tableViewController>
@@ -204,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="foS-7y-S1e">
-                                <rect key="frame" x="0.0" y="120" width="414" height="776"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="777"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="G1a-cV-5Y9" customClass="CustomTableViewCell" customModule="MyFavoritePlaces" customModuleProvider="target">
@@ -283,7 +284,7 @@
                         <constraints>
                             <constraint firstItem="k0A-V5-gTA" firstAttribute="leading" secondItem="ikc-z2-et9" secondAttribute="leading" id="4AL-be-IGv"/>
                             <constraint firstAttribute="bottom" secondItem="foS-7y-S1e" secondAttribute="bottom" id="6kV-dd-4Aa"/>
-                            <constraint firstItem="foS-7y-S1e" firstAttribute="top" secondItem="k0A-V5-gTA" secondAttribute="bottom" constant="1" id="AH2-d9-l3h"/>
+                            <constraint firstItem="foS-7y-S1e" firstAttribute="top" secondItem="k0A-V5-gTA" secondAttribute="bottom" id="AH2-d9-l3h"/>
                             <constraint firstItem="foS-7y-S1e" firstAttribute="leading" secondItem="ikc-z2-et9" secondAttribute="leading" id="JWr-zZ-u0a"/>
                             <constraint firstItem="foS-7y-S1e" firstAttribute="trailing" secondItem="ikc-z2-et9" secondAttribute="trailing" id="bsf-Da-Rxq"/>
                             <constraint firstItem="k0A-V5-gTA" firstAttribute="trailing" secondItem="ikc-z2-et9" secondAttribute="trailing" id="w1j-XY-8Xv"/>
