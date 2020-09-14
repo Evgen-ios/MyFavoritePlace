@@ -1,9 +1,8 @@
 # My Favorite Place
 
-
-Hello everyone, I'm learning swift language and building app "My favorite place".
+"My favorite place".
 
 Swift
-
+UIKit
 Realm
 
